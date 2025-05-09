@@ -1,0 +1,13 @@
+# --- FastAPI 用 ---
+fastapi
+uvicorn
+
+# --- モデル関連 ---
+joblib
+lightgbm==4.6.0
+scikit-learn
+pandas
+
+# --- Streamlit 用 ---
+streamlit
+requests
