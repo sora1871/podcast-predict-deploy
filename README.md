@@ -7,10 +7,7 @@ LightGBM による予測モデルを FastAPI 経由で提供し、Streamlit に�
 さらに Docker 化により、誰でもすぐにローカルで再現可能です。
 
 ---
-
-##  公開デモ（Streamlit）
-
- [アプリを見る](https://predictpodcastlisteningtime-bmhp29rl8pneytab34x29h.streamlit.app/)
+まだ、デプロイができてないので、完成したら追記します。
 
 ---
 
