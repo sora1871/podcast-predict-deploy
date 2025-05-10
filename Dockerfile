@@ -1,6 +1,9 @@
 # ベースイメージ：Python公式の軽量バージョン
 FROM python:3.10-slim
 
+# 必要なライブラリを追加 ← この行を追加！
+RUN apt-get update && apt-get install -y libgomp1
+
 # 作業ディレクトリの作成
 WORKDIR /app
 

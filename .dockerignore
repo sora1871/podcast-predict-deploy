@@ -1,0 +1,13 @@
+# Pythonキャッシュファイル
+__pycache__/
+*.pyc
+
+# 仮想環境（ローカル開発用）
+.venv/
+
+# 機密情報
+.env
+
+# OS系
+.DS_Store
+Thumbs.db
