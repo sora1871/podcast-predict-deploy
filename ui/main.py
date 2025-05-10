@@ -33,7 +33,7 @@ input_data = {
 
 if st.button("予測する"):
     try:
-        response = requests.post("http://localhost:8000/predict", json=input_data)
+        response = requests.post("https://podcast-fastapi.onrender.com/predict", json=input_data)
         if response.status_code == 200:
             prediction = response.json()["prediction"]
             st.success(f"予測再生時間: {prediction:.2f} 分")
