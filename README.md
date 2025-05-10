@@ -7,11 +7,14 @@ LightGBM による予測モデルを FastAPI 経由で提供し、Streamlit に�
 さらに Docker 化により、誰でもすぐにローカルで再現可能です。
 
 ---
-## 公開中のアプリ
-- [ Streamlit UI (Frontend)](https://podcast-streamlit.onrender.com) ユーザー入力と予測結果の表示UI
-- [ FastAPI Endpoint (Backend)](https://podcast-fastapi.onrender.com/predict) ポッドキャスト再生時間の予測API
 
 
+##  公開中のアプリ（Docker統合構成）
+
+- [ Streamlit UI (Frontend)](https://podcast-streamlit.onrender.com)  
+  ユーザー入力と予測結果の表示UI（内部でFastAPIを呼び出し）
+
+> ※ API (`/predict`) は外部公開しておらず、**UI内部からのみアクセス可能**です。
 ---
 
 ##  使用した特徴量（全14項目）
