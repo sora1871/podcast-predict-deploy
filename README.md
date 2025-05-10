@@ -7,7 +7,10 @@ LightGBM による予測モデルを FastAPI 経由で提供し、Streamlit に�
 さらに Docker 化により、誰でもすぐにローカルで再現可能です。
 
 ---
-まだ、デプロイができてないので、完成したら追記します。
+## 公開中のアプリ
+- [ Streamlit UI (Frontend)](https://podcast-streamlit.onrender.com)
+- [ FastAPI Endpoint (Backend)](https://podcast-fastapi.onrender.com/predict)
+
 
 ---
 
