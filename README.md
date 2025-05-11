@@ -8,14 +8,25 @@ LightGBM による予測モデルを FastAPI 経由で提供し、Streamlit に�
 
 ---
 
+## Render無料プランでのスリープ対策（このアプリの構成）
+このアプリは、Streamlit（UI）とFastAPI（API）を同一コンテナ内で動かす構成で、Renderにデプロイしています。
+FastAPIは外部公開せず、内部でStreamlitからlocalhost経由でAPIを呼び出す形を採用しました。
 
-##  公開中のアプリ（Docker統合構成）
+Renderの無料プランにはスリープ機能があり、一定時間アクセスがないとアプリが休止状態になります。
+初回アクセス時に発生するCold Start（起動遅延）を避けるため、私はUptimeRobotを導入し、5分ごとにアプリにPingを送る構成にしました。
 
-- [ Streamlit UI (Frontend)](https://podcast-docker-app.onrender.com/)  
-  ユーザー入力と予測結果の表示UI（内部でFastAPIを呼び出し）
+ 実際に設定している内容（UptimeRobot）
+URL：https://podcast-docker-app.onrender.com/
 
-> ※ API (`/predict`) は外部公開しておらず、**UI内部からのみアクセス可能**です。
----
+タイプ：HTTP(s)
+
+間隔：5分
+
+Pingはインターネット上の監視サービスから送信されるため、自分のPCは起動している必要がありません。
+
+このように、無料プランの制約下でもアプリが安定して動作するよう、自ら対策を設計しています。
+
+
 
 ##  使用した特徴量（全14項目）
 
