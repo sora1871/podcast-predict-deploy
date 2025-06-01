@@ -1,0 +1,26 @@
+
+services:
+  app:  # あなたのアプリ本体（FastAPI + Streamlit）
+    build:
+      context: .            # 現在のフォルダ（.）をビルド対象に
+      dockerfile: Dockerfile  # 使うDockerfileを明示的に指定
+    ports:
+      - "8501:8501"         # ホストの8501 → コンテナの8501（Streamlit用）
+      - "8000:8000"         # FastAPI用（必要に応じて）
+    volumes:
+      - .:/app              # ローカルのカレントディレクトリをコンテナの /app にマウント
+                            # ローカルの変更が即コンテナに反映される
+    depends_on:
+      - mlflow              # このサービスはmlflowが起動してから開始する
+
+  mlflow:  # MLflow Tracking Server（モデルのログや管理UI）
+    image: ghcr.io/mlflow/mlflow  # 公式MLflowイメージを使用
+    ports:
+      - "5000:5000"         # ホストの5000 → コンテナの5000（MLflow UI用）
+    volumes:
+      - ./mlruns:/mlflow/mlruns  # ログやモデルを保存するフォルダを永続化
+    environment:
+      - MLFLOW_TRACKING_URI=http://0.0.0.0:5000  # サーバーのURI設定（内部用）
+    command: mlflow server --backend-store-uri /mlflow/mlruns --host 0.0.0.0 --port 5000
+                            # MLflowサーバの起動コマンド
+                            # 保存先と待ち受けポートを指定

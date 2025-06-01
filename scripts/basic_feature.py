@@ -12,7 +12,7 @@ def preprocess_features(df):
     return df
 
 
-def create_train_data(path="../data/train.csv"):
+def create_train_data(path="data/train.csv"):
     """
     学習データの読み込み・前処理・分割をまとめて行う関数。
     

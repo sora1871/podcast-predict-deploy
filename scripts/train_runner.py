@@ -1,11 +1,10 @@
-# scripts/train_runner.py
-
 import pandas as pd
+import numpy as np
 from scripts.train import train_lgb_regression
 
 def run_baseline_training(x_train, y_train, id_train, save_dir="../models"):
     y_train = y_train.astype(float)
-    # ハイパーパラメータ（ベースライン）
+
     params = {
         'objective': 'regression',
         'metric': 'rmse',
@@ -20,8 +19,7 @@ def run_baseline_training(x_train, y_train, id_train, save_dir="../models"):
         'random_state': 42
     }
 
-    # 学習関数を呼び出す
-    return train_lgb_regression(
+    train_oof, imp, metrics = train_lgb_regression(
         x_train,
         y_train,
         id_train,
@@ -30,3 +28,5 @@ def run_baseline_training(x_train, y_train, id_train, save_dir="../models"):
         n_splits=5,
         save_dir=save_dir
     )
+
+    return train_oof, imp, metrics

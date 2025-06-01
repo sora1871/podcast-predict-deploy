@@ -1,0 +1,6 @@
+artifact_location: mlflow-artifacts:/670895197044220653
+creation_time: 1748765471775
+experiment_id: '670895197044220653'
+last_update_time: 1748765471775
+lifecycle_stage: active
+name: PodcastPrediction

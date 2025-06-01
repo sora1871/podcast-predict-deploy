@@ -11,6 +11,9 @@ matplotlib
 numpy
 python-dotenv
 
+# --- MLOps ---
+mlflow==2.13.0
+
 # --- Streamlit 用 ---
 streamlit
 requests
